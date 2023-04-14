@@ -20,7 +20,7 @@ public class PaintController : MonoBehaviour
     private int _height = 4;
 
     private Vector2 _prePos;
-    private Vector2 _touchPos;
+    public Vector2 TouchPos { get; set; }
 
     private float _clickTime, _preClickTime;
 
@@ -31,9 +31,9 @@ public class PaintController : MonoBehaviour
         var _event = arg as PointerEventData; //タッチの情報取得
 
         // 押されているときの処理
-        _touchPos = _event.position; //現在のポインタの座標
-        
-        _onDragEvent.Invoke(_touchPos);
+        TouchPos = _event.position; //現在のポインタの座標
+        Debug.Log(TouchPos);
+        _onDragEvent.Invoke(TouchPos);
 
         _clickTime = _event.clickTime; //最後にクリックイベントが送信された時間を取得
 
@@ -42,7 +42,7 @@ public class PaintController : MonoBehaviour
         var width = _width; //ペンの太さ(ピクセル)
         var height = _height; //ペンの太さ(ピクセル)
 
-        var dir = _prePos - _touchPos; //直前のタッチ座標との差
+        var dir = _prePos - TouchPos; //直前のタッチ座標との差
         if (disTime > 0.01) dir = new Vector2(0, 0); //0.1秒以上間隔があいたらタッチ座標の差を0にする
 
         var dist = (int)dir.magnitude; //タッチ座標ベクトルの絶対値
@@ -52,7 +52,7 @@ public class PaintController : MonoBehaviour
         //指定のペンの太さ(ピクセル)で、前回のタッチ座標から今回のタッチ座標まで塗りつぶす
         for (var d = 0; d < dist; ++d)
         {
-            var _pos = _touchPos + dir * d; //paint position
+            var _pos = TouchPos + dir * d; //paint position
             _pos.y -= height / 2.0f;
             _pos.x -= width / 2.0f;
             for (var h = 0; h < height; ++h)
@@ -72,7 +72,7 @@ public class PaintController : MonoBehaviour
         }
 
         _texture.Apply();
-        _prePos = _touchPos;
+        _prePos = TouchPos;
         _preClickTime = _clickTime;
     }
 
@@ -81,12 +81,12 @@ public class PaintController : MonoBehaviour
         var _event = arg as PointerEventData; //タッチの情報取得
 
         // 押されているときの処理
-        _touchPos = _event.position; //現在のポインタの座標
+        TouchPos = _event.position; //現在のポインタの座標
 
         var width = _width; //ペンの太さ(ピクセル)
         var height = _height; //ペンの太さ(ピクセル)
 
-        var _pos = _touchPos; //paint position
+        var _pos = TouchPos; //paint position
         _pos.y -= height / 2.0f;
         _pos.x -= width / 2.0f;
 
