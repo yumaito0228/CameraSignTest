@@ -41,22 +41,31 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraSignManager.cs" />
-     <Compile Include="Assets\Samples\uOSC\2.2.0\Client to Server\ClientTest.cs" />
-     <Compile Include="Assets\Samples\uOSC\2.2.0\Client to Server\ServerTest.cs" />
      <Compile Include="Assets\Samples\uOSC\2.2.0\Blob\ClientBlobTest.cs" />
+     <Compile Include="Assets\Scripts\CameraSignManager.cs" />
      <Compile Include="Assets\Samples\uOSC\2.2.0\Blob\ServerBlobTest.cs" />
      <Compile Include="Assets\Samples\uOSC\2.2.0\Bundle\ClientBundleTest.cs" />
-     <Compile Include="Assets\TestMonoBehaviour.cs" />
-     <Compile Include="Assets\PaintController.cs" />
+     <Compile Include="Assets\Scripts\PaintController.cs" />
+     <Compile Include="Assets\Samples\uOSC\2.2.0\Client to Server\ClientTest.cs" />
+     <Compile Include="Assets\Scripts\OscReceiver.cs" />
+     <Compile Include="Assets\Samples\uOSC\2.2.0\Client to Server\ServerTest.cs" />
+     <Compile Include="Assets\Scripts\DynamicBrushMesh.cs" />
+     <Compile Include="Assets\Scripts\MouseDrawer.cs" />
+     <Compile Include="Assets\Scripts\DrawableCanvas.cs" />
+     <Compile Include="Assets\Scripts\LineDrawer.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Samples\uOSC\2.2.0\Blob" />
+     <Folder Include="Assets\Resources" />
+     <None Include="Assets\Resources\Brush.shader" />
      <Folder Include="Assets\Samples" />
+     <None Include="Assets\Resources\DrawLine.shader" />
      <Folder Include="Assets\Samples\uOSC\2.2.0\Client to Server" />
      <Folder Include="Assets\Samples\uOSC\2.2.0" />
      <Folder Include="Assets\Samples\uOSC" />
      <Folder Include="Assets\Samples\uOSC\2.2.0\Bundle" />
+     <None Include="Assets\Resources\SingleColor.shader" />
+     <None Include="Assets\Resources\WhiteTexture.shader" />
      <Folder Include="Assets\Scenes" />
      <Reference Include="UnityEngine">
      <HintPath>D:\Program Files\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -679,6 +688,9 @@
      <Reference Include="Unity.VisualScripting.Flow.Editor">
      <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="OscJack.Runtime">
+     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\OscJack.Runtime.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VSCode.Editor">
      <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
      </Reference>
@@ -730,11 +742,17 @@
      <Reference Include="Unity.Services.Core">
      <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.EditorCoroutines.Editor">
+     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VisualScripting.Core">
      <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+     <Reference Include="Activ8.OSC.Runtime">
+     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Activ8.OSC.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="OscJack.Editor">
+     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\OscJack.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Analytics">
      <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
@@ -745,32 +763,23 @@
      <Reference Include="Unity.Services.Core.Environments">
      <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
      </Reference>
+     <Reference Include="uOSC.Editor">
+     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\uOSC.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Timeline.Editor">
      <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Activ8.OSC.Editor">
+     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Activ8.OSC.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="uOSC.Runtime">
+     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\uOSC.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor">
      <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
-     <Reference Include="uOSC.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\uOSC.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="uOSC.Runtime">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\uOSC.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="OscJack.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\OscJack.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="OscJack.Runtime">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\OscJack.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Activ8.OSC.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Activ8.OSC.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Activ8.OSC.Runtime">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Activ8.OSC.Runtime.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
