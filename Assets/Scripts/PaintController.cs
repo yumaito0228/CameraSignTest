@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts;
+using OscJack;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PaintController : MonoBehaviour
@@ -24,7 +22,15 @@ public class PaintController : MonoBehaviour
 
     private float _clickTime, _preClickTime;
 
-    [SerializeField] private UnityEvent<Vector2> _onDragEvent;
+    // [SerializeField] private UnityEvent<Vector2> _onDragEvent;
+
+    private OscClient _client;
+    private void Awake()
+    {
+        var oscConnection = CameraSignAppManager.Instance.oscConnection;
+        _client = new OscClient(oscConnection.host, oscConnection.port);
+    }
+
 
     public void OnDrag(BaseEventData arg) //線を描画
     {
@@ -32,9 +38,12 @@ public class PaintController : MonoBehaviour
 
         // 押されているときの処理
         TouchPos = _event.position; //現在のポインタの座標
-        Debug.Log(TouchPos);
-        _onDragEvent.Invoke(TouchPos);
-
+        // Debug.Log(TouchPos);
+        Debug.Log(FindObjectOfType<Camera>().ScreenToViewportPoint(TouchPos));
+        // _onDragEvent.Invoke(TouchPos);
+        var viewport = FindObjectOfType<Camera>().ScreenToViewportPoint(TouchPos);
+        _client.Send("/OscJack/position", viewport.x, viewport.y);
+        
         _clickTime = _event.clickTime; //最後にクリックイベントが送信された時間を取得
 
         var disTime = _clickTime - _preClickTime; //前回のクリックイベントとの時差
