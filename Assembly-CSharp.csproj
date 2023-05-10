@@ -42,30 +42,24 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Samples\uOSC\2.2.0\Blob\ClientBlobTest.cs" />
+     <Compile Include="Assets\TestInteractionController.cs" />
      <Compile Include="Assets\Scripts\CameraSignManager.cs" />
      <Compile Include="Assets\Samples\uOSC\2.2.0\Blob\ServerBlobTest.cs" />
+     <Compile Include="Assets\Scripts\LineDrawer.cs" />
      <Compile Include="Assets\Samples\uOSC\2.2.0\Bundle\ClientBundleTest.cs" />
      <Compile Include="Assets\Scripts\PaintController.cs" />
      <Compile Include="Assets\Samples\uOSC\2.2.0\Client to Server\ClientTest.cs" />
      <Compile Include="Assets\Scripts\OscReceiver.cs" />
      <Compile Include="Assets\Samples\uOSC\2.2.0\Client to Server\ServerTest.cs" />
-     <Compile Include="Assets\Scripts\DynamicBrushMesh.cs" />
-     <Compile Include="Assets\Scripts\MouseDrawer.cs" />
-     <Compile Include="Assets\Scripts\DrawableCanvas.cs" />
-     <Compile Include="Assets\Scripts\LineDrawer.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Samples\uOSC\2.2.0\Blob" />
      <Folder Include="Assets\Resources" />
-     <None Include="Assets\Resources\Brush.shader" />
      <Folder Include="Assets\Samples" />
-     <None Include="Assets\Resources\DrawLine.shader" />
      <Folder Include="Assets\Samples\uOSC\2.2.0\Client to Server" />
      <Folder Include="Assets\Samples\uOSC\2.2.0" />
      <Folder Include="Assets\Samples\uOSC" />
      <Folder Include="Assets\Samples\uOSC\2.2.0\Bundle" />
-     <None Include="Assets\Resources\SingleColor.shader" />
-     <None Include="Assets\Resources\WhiteTexture.shader" />
      <Folder Include="Assets\Scenes" />
      <Reference Include="UnityEngine">
      <HintPath>D:\Program Files\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -305,13 +299,13 @@
      <HintPath>D:\Program Files\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="ReportGeneratorMerged">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.iOS.Extensions.Xcode">
      <HintPath>D:\Program Files\2021.3.16f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -686,103 +680,107 @@
      <HintPath>D:\Program Files\2021.3.16f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="OscJack.Runtime">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\OscJack.Runtime.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\OscJack.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Activ8.OSC.Runtime">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Activ8.OSC.Runtime.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Activ8.OSC.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="OscJack.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\OscJack.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\OscJack.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Analytics">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Environments">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
      </Reference>
      <Reference Include="uOSC.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\uOSC.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\uOSC.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Activ8.OSC.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Activ8.OSC.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Activ8.OSC.Editor.dll</HintPath>
      </Reference>
      <Reference Include="uOSC.Runtime">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\uOSC.Runtime.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\uOSC.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>C:\Users\PC_User\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>C:\Users\PC_User\Desktop\CameraSignTest\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{3fd1d312-38c5-ee78-e497-7b2e4dfca077}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -4,6 +4,7 @@ public class LineDrawer : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Material lineMat;
+    [SerializeField] private float lineWidth = 0.01f;
     private LineRenderer _lineRenderer;
 
     private LineRenderer LineRenderer
@@ -15,6 +16,8 @@ public class LineDrawer : MonoBehaviour
                 _lineRenderer = gameObject.AddComponent<LineRenderer>();
                 _lineRenderer.useWorldSpace = false;
                 _lineRenderer.material = lineMat;
+                _lineRenderer.startWidth = lineWidth;
+                _lineRenderer.endWidth = lineWidth;
             }
 
             return _lineRenderer;
@@ -38,10 +41,8 @@ public class LineDrawer : MonoBehaviour
         transform.position = cameraTransform.position + cameraTransform.forward * 10;
         transform.rotation = cameraTransform.rotation;
         
-        var pos = mainCamera.ViewportToScreenPoint(position);
-        pos.z = 10;
-        pos = mainCamera.ScreenToWorldPoint(pos);
-        pos = transform.InverseTransformPoint(pos);
+        
+        var pos = transform.InverseTransformPoint(position);
 
         // さらにそれをローカル座標に直す。
         // pos = transform.InverseTransformPoint(pos);
