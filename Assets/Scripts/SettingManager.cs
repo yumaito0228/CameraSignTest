@@ -5,15 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class SettingManager : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField ipaddress;
+    [SerializeField] private TMP_InputField ipAddress;
     [SerializeField] private TMP_InputField port;
-    
+    [SerializeField] private TMP_InputField oscAddress;
+
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("ipAddress"))
+        {
+            ipAddress.text = PlayerPrefs.GetString("ipAddress");
+        }
+        
+        if (PlayerPrefs.HasKey("port"))
+        {
+            port.text = PlayerPrefs.GetString("port");
+        }
+        
+        if (PlayerPrefs.HasKey("oscAddress"))
+        {
+            oscAddress.text = PlayerPrefs.GetString("oscAddress");
+        }
+    }
+
     public void OnClick()
     {
-        var oscConnection = CameraSignAppManager.Instance.oscConnection;
-        oscConnection.host = ipaddress.text;
-        oscConnection.port = int.Parse(port.text);
+        var cameraSignAppManager = CameraSignAppManager.Instance;
+        cameraSignAppManager.oscConnection.host = ipAddress.text;
+        cameraSignAppManager.oscConnection.port = int.Parse(port.text);
+        cameraSignAppManager.oscAddress = oscAddress.text;
+        
         
         SceneManager.LoadScene("Paint");
     }
 }
+
